@@ -11,3 +11,16 @@ def generar(n):
 
 generar(8)
 print(a)
+#number2
+def mostrar(lista):
+    for x in lista:
+        if x in lista:
+            print(x)
+
+mostrar([1,2,3,4,5])
+
+#def reversa(lista):
+
+
+
+
