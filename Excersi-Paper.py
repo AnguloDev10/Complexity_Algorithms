@@ -20,7 +20,18 @@ def mostrar(lista):
 mostrar([1,2,3,4,5])
 
 #def reversa(lista):
+results = []
+a = 0
+def stringmatching(p,t):
+    l = len(p)
+    n = len(t)
+    for i in range(n-1):
+        if p in t:
+            results.append(p)
+            a+1
+        return results
 
-
-
-
+stringmatching("rac", "abracadabracalamazoo")
+print(results)
+print(a)
+#Backtracking
