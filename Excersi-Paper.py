@@ -9,8 +9,8 @@ import random as ra
 
 
 
-generar(8)
-print(a)
+#generar(8)
+#print(a)
 #number2
 def mostrar(lista):
     for x in lista:
