@@ -41,7 +41,7 @@ print('the number is '+ n)
 def weird(n):
     if(n <0):
         return []
-    if(n  2 == 0)
+    if(n//2 == 0):
        n = n*2
        weird(n)
     elif(n % 2 != 0):
