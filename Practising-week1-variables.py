@@ -1,187 +1,64 @@
-#FucckingIdentation
-def a():
- if 5 > 2 :
-    print("Five is greater than two!")
- if 4 > 1 :
-     print("Four is grater than two!")
 
-a()
-#Variables
-#function type() for getting the type
-x = 5
-print(type(x))
-#string
-#We can declared String either by using single or double quotes
-y = "jhon"
-#is the same
-r = 'Jhon'
 
-#overwrite
-#var a is different with A
 
-#variablesNames
-myvar = "John"
-my_var = "John"
-_my_var = "John"
-myVar = "John"
-MYVAR = "John"
-myvar2 = "John"
 
-#multiple variables
-x,y,z = "Orange","Banana","Cherry"
-print(x);
-print(y);
-print(z);
-#Unpacking collections
-players = ["cristiano","Messi","Cherry"]
-a,b,c = players
-print(a);
-print(b);
-print(c);
-#Outputting variables
-x = "awesome"
-print("Python is "+ x)
-x = "Python is "
-y = "awesome"
-z = x + y
-print(z)
-#Global variables
-x = "awesome"
-def myfunc():
-    print("Python is "+ x)
-myfunc()
-# inside a function
-x = "awesome"
 
-def myfunc():
-  x = "fantastic"
-  print("Python is " + x)
+class Sequence(object):
 
-myfunc()
+    def __init__(self, identifier, comment, seq):
+        self.id = identifier
+        self.comment = comment
+        self.seq = self._clean(seq)
 
-print("Python is " + x)
 
-##Built-in Data Types
-#Text Type: str
-#Numeric Types: int, float, complex
-#Sequeenca Types: list, tuple, range
-#Mapping Type: dict
-#Set Types: set, frozenset
-#Boolean Type: bool
-#Binary Types: bytes, bytearray, memoryview
+    def _clean(self, seq):
+        """
+        remove newline from the string representing the sequence
+        :param seq: the string to clean
+        :return: the string without '\n'
+        :rtype: string
+        """
+        return seq.replace('\n')
 
-##Random
-import  random
-print(random.randrange(1,100))
 
-#String are Arrays
-a = "Hello, World"
-print(a[1])
+    def gc_percent(self):
+        """
+        :return: the gc ratio
+        :rtype: float
+        """
+        seq = self.seq.upper()
+        return float(seq.count('G') + seq.count('C')) / len(seq)
 
-for x in "banana":
-    print(x)
 
-a = "Hello, World"
-print(len(a))
-##checking strings
-txt = "William is handsome"
-print("handsome" in txt)
-#if not
-txt = "William is handsome"
-print("handsome" not in txt)
-##Slicing strings
-#with a range
-b = "William is the best "
-print(b[3:5])
-#since the start
-b = "QUE ONDA PA"
-print(b[:4])
-#to the end
-b="String is so hard"
-print(b[2:])
-#negative indexing
-b = "Hello, world!"
-print(b[-3:-1])
-##Modifying strings
-#upper
-a = "William wapo"
-print(a.upper())
-#lower
-a = "GAYS"
-print(a.lower())
-#strip
-#removes spaces from the beginning and also the end
-a = " Hello, GAY "
-print(a.strip())
-#replace
-a = "Hola gente de wsp"
-print(a.replace("H","w"))
-#split a comom function
-a = "Take away bro"
-print(a.split("y"))
-#we have to indicate the separation
 
-##String Concatenation
-##examples
-a = "Hello"
-b = "World"
-c = a + b
-print(c)
-##adding space
-a = "Hello"
-b = "World"
-c = a + " " + b
-print(c)
-#formating strings
-age= 19
-txt = "My name is William, I am {}"
-print(txt.format(age))
 
-quantity = 3
-itemno = 567
-price = 49.95
-myorder = "I want {} pieces of item {} for {} dollars."
-print(myorder.format(quantity, itemno, price))
+dna1 = Sequence('gi214', 'the first sequence', 'tcgcgcaacgtcgcctacatctcaagattca')
+dna2 = Sequence('gi3421', 'the second sequence', 'gagcatgagcggaattctgcatagcgcaagaatgcggc')
+class MyClass(object):
 
-quantity = 3
-itemno = 567
-price = 49.95
-myorder = "I want to pay {2} dollars for {0} pieces of item {1}."
-print(myorder.format(quantity, itemno, price))
-#Escape characters
-#\'	Single Quote
-#\\	Backslash
-#\n	New Line
-#\r	Carriage Return
-#\t	Tab
-#\b	Backspace
-#\f	Form Feed
-#\ooo	Octal value
-#\xhh	Hex value
+    class_attr = 'foo'
 
-##Booleans
-#bool
-print(bool("Hello"))
-print(bool(1))
+    def __init__(self, val):
+        self.inst_attr = val
 
-x = "Hello"
-y = 15
 
-print(bool(x))
-print(bool(y))
-#Most values are true
-#any string are true except empty
-#We are going to see some values are false
-bool(False)
-bool(None)
-bool(0)
-bool("")
-bool(())
-bool([])
-bool({})
+a = MyClass(1)
+b = MyClass(2)
 
-class myclass():
-    def __len__(self):
-       return 1
-myobj = myclass()
-print(bool(myobj))
+print(a.inst_attr)
+1
+print(b.inst_attr)
+2
+
+print(a.class_attr == b.class_attr)
+True
+print(a.class_attr is b.class_attr)
+True
+
+b.class_attr = 4
+
+print(a.class_attr)
+4
+del a.class_attr
+
+MyClass.class_attr = 4
